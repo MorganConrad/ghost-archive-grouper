@@ -46,7 +46,7 @@ let pageParagraph = document.querySelector("p.gh-about-secondary");
 pageParagraph.textContent = "Archive Summary";
 
 // and group the feed by date
-  import { groupByDate } from './ghostArchiveGrouper.js';
+  import { groupByDate } from 'https://cdn.jsdelivr.net/gh/MorganConrad/ghost-archive-grouper/ghostArchiveGrouper.js';
   let wrapper = document.querySelector("div .gh-feed");
   let newPosts = groupByDate(wrapper);
 

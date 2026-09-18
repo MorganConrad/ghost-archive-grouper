@@ -28,7 +28,7 @@ Add something akin to the following code, probably via [Ghost Header Injection](
   pageParagraph.textContent = "Archive Summary";
 
 // call the group the feed by date code
-  import { groupByDate } from './ghostArchiveGrouper.js';
+  import { groupByDate } from 'https://cdn.jsdelivr.net/gh/MorganConrad/ghost-archive-grouper/ghostArchiveGrouper.js';
   let wrapper = document.querySelector("div .gh-feed");  // may vary by theme
   let newPosts = groupByDate(wrapper);
 
