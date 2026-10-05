@@ -2,7 +2,7 @@
 
 # archive-grouper
 
-Groups a bunch of blog posts into subgroups by date, e.g. by year or month.  Wraps these subgroups in <details><summary></summary></details> tags.
+Groups a bunch of blog posts into subgroups by date, e.g. by year or month.  Wraps these subgroups in `<details><summary></summary></details>` tags.
 
 Developed and tested for for Ghost but should be useable many places.
 
@@ -28,7 +28,7 @@ In some cases the original content was modified to add more posts with different
  - Dawn.html
  - Solo.html
  - Source.html
- - Tangle/html   based on readtangle.com
+ - Tangle.html   based on readtangle.com
 
 ## Usage
 
@@ -37,7 +37,7 @@ In a production Ghost blog, one would add something akin to the following code, 
 ```js
 <script type="module" defer>
 
-  import { ArchiveGrouper } from "./archiveGrouper.js";   // note - you'd want this in assets/js
+  import { ArchiveGrouper } from "./archiveGrouper.js";   // note - you'd probably want this in assets/js
 
   let wrapper = document.querySelector("div .gh-feed");   // this selector varies, e.g., for Casper theme, the selector is "div .post-feed"
   let grouper = new ArchiveGrouper();
