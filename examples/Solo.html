@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Getting Started - Jamie Solo</title>
+    <link rel="stylesheet" href="/assets/built/screen.css?v=bZbkhA4bUdIx1Oi1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TryGhost/Solo/assets/built/screen.css">
+
+
+    <style>
+        :root {
+            --background-color: #ffffff
+        }
+    </style>
+
+    <script>
+        /* The script for calculating the color contrast was taken from
+        https://gomakethings.com/dynamically-changing-the-text-color-based-on-background-color-contrast-with-vanilla-js/ */
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+
+        document.documentElement.className = `has-${textColor}-text`;
+    </script>
+
+    <link rel="icon" href="https://storage.ghost.io/c/6b/5c/6b5c3a75-5db7-4e03-92d7-c70cc83ad016/content/images/size/w256h256/2022/09/jack-finnigan-rriAI0nhcbc-unsplash.png" type="image/png">
+    <link rel="canonical" href="https://solo.ghost.io/tag/getting-started/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <meta property="og:site_name" content="Jamie Solo">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Getting Started - Jamie Solo">
+    <meta property="og:url" content="https://solo.ghost.io/tag/getting-started/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDN8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTY2MjczMjQ3NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta property="article:publisher" content="https://www.facebook.com/ghost">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Getting Started - Jamie Solo">
+    <meta name="twitter:url" content="https://solo.ghost.io/tag/getting-started/">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDN8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTY2MjczMjQ3NA&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000">
+    <meta name="twitter:site" content="@ghost">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="1800">
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Series",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Jamie Solo",
+        "url": "https://solo.ghost.io/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/6b/5c/6b5c3a75-5db7-4e03-92d7-c70cc83ad016/content/images/size/w256h256/2022/09/jack-finnigan-rriAI0nhcbc-unsplash.png",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "url": "https://solo.ghost.io/tag/getting-started/",
+    "name": "Getting Started",
+    "mainEntityOfPage": "https://solo.ghost.io/tag/getting-started/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.65">
+    <link rel="alternate" type="application/rss+xml" title="Jamie Solo" href="https://solo.ghost.io/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.71/umd/portal.min.js" data-i18n="true" data-ghost="https://solo.ghost.io/" data-key="0cd536ea7f371b96d998fcba22" data-api="https://solo.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="0cd536ea7f371b96d998fcba22" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://solo.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+
+    <link href="https://solo.ghost.io/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=ShRHxgy4po8zN-Wf"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=WwnU9jw5ancNC8Gc">
+    <script defer src="/public/member-attribution.min.js?v=AKG4hWena9j3yX3I"></script>
+    <script defer src="/public/ghost-stats.min.js?v=vFcCUf6ZQ0Hyhc8h" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://solo.ghost.io/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="6b5c3a75-5db7-4e03-92d7-c70cc83ad016" tb_post_uuid="undefined" tb_post_type="null" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #000000;}</style>
+    <style>
+    .gh-shuffle-button {
+    	position: fixed;
+		right: 48px;
+		bottom: 48px;
+		border: 0;
+		background: #fff;
+		font-size: 1.7rem;
+		font-weight: 700;
+		height: 40px;
+		padding: 0 16px;
+		border-radius: 24px;
+		cursor: pointer;
+		box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px -2px;
+    }
+
+    .has-typographic-feed .gh-card-image {
+        display: none;
+    }
+</style>
+
+<!-- added code to trigger ArchiveGrouper -->
+
+<script type="module" defer>
+
+  import { ArchiveGrouper } from "../archiveGrouper.js";
+
+  let wrapper = document.querySelector("div .gh-feed");
+  let grouper = new ArchiveGrouper();
+  let newPosts = grouper.doGroup(wrapper);
+
+</script>
+
+<style>
+  .archive-summary-uitime {
+    font-size: 1.5em;
+    border: 2px solid magenta;
+    padding: 1px 1em 1px 1em;
+  }
+</style>
+
+<!-- end of added code -->
+
+</head>
+
+<body class="tag-template tag-getting-started is-head-left-logo has-classic-feed">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    <a class="gh-head-logo" href="https://solo.ghost.io">
+                            Jamie Solo
+                    </a>
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                <button class="gh-burger" aria-label="Toggle menu"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://solo.ghost.io/">Home</a></li>
+    <li class="nav-about"><a href="https://solo.ghost.io/about/">About</a></li>
+    <li class="nav-style-guide"><a href="https://solo.ghost.io/style-guide/">Style Guide</a></li>
+    <li class="nav-author"><a href="https://solo.ghost.io/author/jamie/">Author</a></li>
+    <li class="nav-collection nav-current"><a href="https://solo.ghost.io/tag/getting-started/">Collection</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M17.5 17.5L12.5 12.5L17.5 17.5ZM14.1667 8.33333C14.1667 9.09938 14.0158 9.85792 13.7226 10.5657C13.4295 11.2734 12.9998 11.9164 12.4581 12.4581C11.9164 12.9998 11.2734 13.4295 10.5657 13.7226C9.85792 14.0158 9.09938 14.1667 8.33333 14.1667C7.56729 14.1667 6.80875 14.0158 6.10101 13.7226C5.39328 13.4295 4.75022 12.9998 4.20854 12.4581C3.66687 11.9164 3.23719 11.2734 2.94404 10.5657C2.65088 9.85792 2.5 9.09938 2.5 8.33333C2.5 6.78624 3.11458 5.30251 4.20854 4.20854C5.30251 3.11458 6.78624 2.5 8.33333 2.5C9.88043 2.5 11.3642 3.11458 12.4581 4.20854C13.5521 5.30251 14.1667 6.78624 14.1667 8.33333Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+
+<main class="gh-main gh-outer">
+        <section class="gh-article gh-inner">
+            <header class="gh-article-header">
+                <h1 class="gh-article-title">Getting Started</h1>
+                <br><br>
+                This is a modified version of the Ghost Solo theme <a href="https://solo.ghost.io/tag/getting-started/">Collections page</a><br>
+                Every entry has been duplicated with the year changed to 2023.
+
+                            </header>
+        </section>
+    <div class="gh-feed gh-inner">
+            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/getting-started-start-here-for-a-quick-overview-of-everything-you-need-to-know/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Start here for a quick overview of everything you need to know"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Start here for a quick overview of everything you need to know</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/writing-and-managing-content-in-ghost-an-advanced-guide/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Writing and managing content in Ghost, an advanced guide"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Writing and managing content in Ghost, an advanced guide</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/building-your-audience-with-subscriber-signups/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Building your audience with subscriber signups"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Building your audience with subscriber signups</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/selling-premium-memberships-with-recurring-revenue/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Selling premium memberships with recurring revenue"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Selling premium memberships with recurring revenue</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+                    <span class="gh-card-access">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.65654 2.15649C5.01286 1.80017 5.49613 1.59999 6.00004 1.59999C6.50395 1.59999 6.98723 1.80017 7.34355 2.15649C7.69986 2.51281 7.90004 2.99608 7.90004 3.49999V4.89999H4.10004V3.49999C4.10004 2.99608 4.30022 2.51281 4.65654 2.15649ZM2.90004 4.89999V3.49999C2.90004 2.67782 3.22665 1.88933 3.80801 1.30796C4.38937 0.7266 5.17787 0.399994 6.00004 0.399994C6.82221 0.399994 7.61071 0.7266 8.19207 1.30796C8.77344 1.88933 9.10004 2.67782 9.10004 3.49999V4.89999H9.4999C10.3836 4.89999 11.0999 5.61634 11.0999 6.49999V9.99999C11.0999 10.8836 10.3836 11.6 9.4999 11.6H2.4999C1.61625 11.6 0.899902 10.8836 0.899902 9.99999V6.49999C0.899902 5.61634 1.61625 4.89999 2.4999 4.89999H2.90004ZM2.90004 6.09999H2.4999C2.27899 6.09999 2.0999 6.27908 2.0999 6.49999V9.99999C2.0999 10.2209 2.27899 10.4 2.4999 10.4H9.4999C9.72082 10.4 9.8999 10.2209 9.8999 9.99999V6.49999C9.8999 6.27908 9.72082 6.09999 9.4999 6.09999H9.10004H7.90004H4.10004H2.90004Z" fill="currentColor" />
+</svg>
+                            Members
+                    </span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/how-to-grow-your-business-around-an-audience/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="How to grow your business around an audience"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">How to grow your business around an audience</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started no-image">
+    <a class="gh-card-link" href="/setting-up-apps-and-custom-integrations/">
+
+            <figure class="gh-card-image">
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Setting up apps and custom integrations</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2023-08-28">28 Aug 2023</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>
+
+
+<article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/getting-started-start-here-for-a-quick-overview-of-everything-you-need-to-know/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1619118884592-11b151f1ae11?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI4fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Start here for a quick overview of everything you need to know"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Start here for a quick overview of everything you need to know</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/writing-and-managing-content-in-ghost-an-advanced-guide/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1619669906274-d379128eaa59?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDI2fHwzZCUyMHNoYXBlfGVufDB8fHx8MTY2MTY4MDA2Ng&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Writing and managing content in Ghost, an advanced guide"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Writing and managing content in Ghost, an advanced guide</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/building-your-audience-with-subscriber-signups/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1620987278429-ab178d6eb547?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDF8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Building your audience with subscriber signups"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Building your audience with subscriber signups</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/selling-premium-memberships-with-recurring-revenue/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1617358142775-4be217d9cc19?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fDNkJTIwc2hhcGV8ZW58MHx8fHwxNjYxNjgwMDY2&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="Selling premium memberships with recurring revenue"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Selling premium memberships with recurring revenue</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+                    <span class="gh-card-access">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.65654 2.15649C5.01286 1.80017 5.49613 1.59999 6.00004 1.59999C6.50395 1.59999 6.98723 1.80017 7.34355 2.15649C7.69986 2.51281 7.90004 2.99608 7.90004 3.49999V4.89999H4.10004V3.49999C4.10004 2.99608 4.30022 2.51281 4.65654 2.15649ZM2.90004 4.89999V3.49999C2.90004 2.67782 3.22665 1.88933 3.80801 1.30796C4.38937 0.7266 5.17787 0.399994 6.00004 0.399994C6.82221 0.399994 7.61071 0.7266 8.19207 1.30796C8.77344 1.88933 9.10004 2.67782 9.10004 3.49999V4.89999H9.4999C10.3836 4.89999 11.0999 5.61634 11.0999 6.49999V9.99999C11.0999 10.8836 10.3836 11.6 9.4999 11.6H2.4999C1.61625 11.6 0.899902 10.8836 0.899902 9.99999V6.49999C0.899902 5.61634 1.61625 4.89999 2.4999 4.89999H2.90004ZM2.90004 6.09999H2.4999C2.27899 6.09999 2.0999 6.27908 2.0999 6.49999V9.99999C2.0999 10.2209 2.27899 10.4 2.4999 10.4H9.4999C9.72082 10.4 9.8999 10.2209 9.8999 9.99999V6.49999C9.8999 6.27908 9.72082 6.09999 9.4999 6.09999H9.10004H7.90004H4.10004H2.90004Z" fill="currentColor" />
+</svg>
+                            Members
+                    </span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started">
+    <a class="gh-card-link" href="/how-to-grow-your-business-around-an-audience/">
+
+            <figure class="gh-card-image">
+                    <img
+
+                        srcset="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                                https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                        sizes="(max-width: 1200px) 100vw, 1200px"
+                        src="https://images.unsplash.com/photo-1633596683562-4a47eb4983c5?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDk5fHwzZCUyMHJlbmRlcnxlbnwwfHx8fDE2NjE5NTMxNzE&amp;ixlib&#x3D;rb-1.2.1&amp;q&#x3D;80&amp;w&#x3D;720"
+                        alt="How to grow your business around an audience"
+                    >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">How to grow your business around an audience</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>            <article class="gh-card post tag-getting-started no-image">
+    <a class="gh-card-link" href="/setting-up-apps-and-custom-integrations/">
+
+            <figure class="gh-card-image">
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <h2 class="gh-card-title">Setting up apps and custom integrations</h2>
+            <footer class="gh-card-meta">
+                <time class="gh-card-date" datetime="2022-08-28">28 Aug 2022</time>
+                    <span class="gh-card-length">1 min read</span>
+            </footer>
+        </div>
+
+    </a>
+</article>
+
+    </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+            <div class="gh-foot-center">
+                <div class="gh-social-links">
+                        <a href="https://x.com/ghost" target="_blank" rel="noopener" aria-label="X">
+<svg viewBox="0 0 24 24" fill="currentColor"><g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g></svg>                        </a>
+                        <a href="https://www.facebook.com/ghost" target="_blank" rel="noopener" aria-label="Facebook">
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 8.04865C16 3.63065 12.418 0.048645 8 0.048645C3.582 0.048645 0 3.63065 0 8.04865C0 12.042 2.92533 15.3513 6.75 15.9513V10.3613H4.71867V8.04798H6.75V6.28665C6.75 4.28198 7.94467 3.17398 9.772 3.17398C10.6467 3.17398 11.5627 3.33065 11.5627 3.33065V5.29931H10.5533C9.55933 5.29931 9.24933 5.91598 9.24933 6.54865V8.04865H11.468L11.1133 10.362H9.24933V15.952C13.0747 15.3513 16 12.0413 16 8.04865Z" fill="currentColor"/>
+</svg>
+                        </a>
+                </div>
+                <nav class="gh-foot-menu">
+                    <ul class="nav">
+    <li class="nav-data-privacy"><a href="https://solo.ghost.io/">Data &amp; privacy</a></li>
+    <li class="nav-contact"><a href="https://solo.ghost.io/">Contact</a></li>
+    <li class="nav-contribute"><a href="https://solo.ghost.io/">Contribute →</a></li>
+</ul>
+
+                </nav>
+            </div>
+
+            <div class="gh-copyright">
+                    Jamie Solo © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+
+<script src="/assets/built/main.min.js?v=_a9dPNKnHszTxOr0"></script>
+
+<script>
+(function () {
+    if (localStorage.getItem('demo')) {
+		localStorage.removeItem('demo');
+	}
+	return;
+    const demos = [
+        {
+        	about: 'side',
+            feed: 'classic',
+            accent: '#15171a',
+            background: '#ffffff',
+            font: 'sans',
+            about_image: 'https://images.unsplash.com/photo-1607031542107-f6f46b5d54e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDN8fG1hbiUyMHBvcnRyYWl0fGVufDB8fHx8MTY2MTc0MjEwOA&ixlib=rb-1.2.1&q=80&w=2000',
+        },
+        {
+        	about: 'background',
+            feed: 'typographic',
+            accent: '#ff0000',
+            background: '#efefef',
+            font: 'serif',
+            about_image: 'https://images.unsplash.com/photo-1570158268183-d296b2892211?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3456&q=80',
+        },
+        {
+        	about: 'typographic',
+            feed: 'typographic',
+            accent: '#ff7c00',
+            background: '#002bff',
+            font: 'mono',
+            about_image: 'https://images.unsplash.com/photo-1506863530036-1efeddceb993?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2688&q=80',
+        },
+        {
+        	about: 'typographic',
+            feed: 'parallax',
+            accent: '#77bb41',
+            background: '#cce8b5',
+            font: 'sans',
+            about_image: 'https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3766&q=80',
+        },
+    ];
+
+    function changeStyle(demo) {
+        const bodyClass = document.body.classList.contains('home-template') ? 'home-template' : document.body.className;
+        let prevALayout;
+	    let prevFLayout;
+
+    	let randomClass = `${bodyClass} has-${demo.font}-font has-${demo.about}-about has-${demo.feed}-feed`;
+        randomClass += demo.about === 'background' && bodyClass.includes('home-template') ? ' is-head-transparent' : '';
+        document.body.className = randomClass;
+
+        document.documentElement.style.setProperty('--ghost-accent-color', demo.accent);
+        document.documentElement.style.setProperty('--background-color', demo.background);
+        var accentColor = getComputedStyle(document.documentElement).getPropertyValue('--background-color');
+        accentColor = accentColor.trim().slice(1);
+        var r = parseInt(accentColor.substr(0, 2), 16);
+        var g = parseInt(accentColor.substr(2, 2), 16);
+        var b = parseInt(accentColor.substr(4, 2), 16);
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        var textColor = (yiq >= 128) ? 'dark' : 'light';
+        document.documentElement.className = `has-${textColor}-text`;
+
+        if (document.body.classList.contains('home-template')) {
+            const about = document.querySelector('.gh-about');
+		    const image = about.querySelector('.gh-about-image');
+
+            if (demo.about !== 'typographic') {
+		        // image.src = demo.about_image;
+            }
+
+			imagesLoaded(image, function () {
+        		if (demo.about === 'background') {
+    	 			about.style.setProperty('--about-height', image.clientWidth * image.naturalHeight / image.naturalWidth + 'px');
+        			about.classList.add('initialized');
+        		}
+        	});
+
+        	if (demo.feed === 'parallax') {
+            	jarallax(document.querySelectorAll('.gh-card'), {
+       				speed: 0.8,
+    			});
+        	}
+
+	        if (demo.feed !== 'parallax') {
+            	jarallax(document.querySelectorAll('.gh-card'), 'destroy');
+        	}
+    	}
+
+        prevALayout = demo.about;
+        prevFLayout = demo.feed;
+    }
+
+    if (localStorage.getItem('demo')) {
+    	changeStyle(JSON.parse(localStorage.getItem('demo')));
+    }
+
+    const shuffleButton = document.createElement('button');
+    shuffleButton.className = 'gh-shuffle-button';
+    shuffleButton.textContent = 'Change style';
+    document.body.appendChild(shuffleButton);
+
+    let index = 1;
+
+    shuffleButton.addEventListener('click', function () {
+	    const demo = demos[index];
+        localStorage.setItem('demo', JSON.stringify(demo));
+
+        changeStyle(demo);
+
+        if (index < demos.length - 1) {
+        	index += 1;
+        } else {
+            index = 0;
+        }
+    });
+})();
+</script>
+
+</body>
+
+</html>
